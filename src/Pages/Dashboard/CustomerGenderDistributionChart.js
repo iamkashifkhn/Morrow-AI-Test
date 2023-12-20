@@ -7,11 +7,11 @@ const CustomerGenderDistributionChart = ({data, loading , selectedOption}) => {
   const getSeriesData = () => {
     switch (selectedOption) {
       case "Day":
-        return [data?.todayMaleCount, data?.todayFemaleCount, data?.todayKidsCount];
+        return [data?.total_m_f_k_24h?.total_male, data?.total_m_f_k_24h?.total_female, data?.total_m_f_k_24h?.total_kids];
       case "Week":
-        return [data?.weekMaleCount, data?.weekFemaleCount, data?.weekKidsCount];
+        return [data?.total_m_f_k_7d?.total_male,  data?.total_m_f_k_7d?.total_female, data?.total_m_f_k_7d?.total_kids];
       case "Month":
-        return [data?.monthMaleCount, data?.monthFemaleCount, data?.monthKidsCount];
+        return [data?.total_m_f_k_30d?.total_male, data?.total_m_f_k_30d?.total_female, data?.total_m_f_k_30d?.total_kids];
       default:
         return [0, 0, 0]; // Default data if selectedOption is not recognized
     }
