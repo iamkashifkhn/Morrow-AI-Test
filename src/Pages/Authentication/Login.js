@@ -18,8 +18,8 @@ const Login = (props) => {
   const validation = useFormik({
     enableReinitialize: true,
     initialValues: {
-      email: "admin@morrowai.com" || "",
-      password: "123456" || "",
+      email: "",
+      password: "",
     },
     validationSchema: Yup.object({
       email: Yup.string().required("Please Enter Your Email"),

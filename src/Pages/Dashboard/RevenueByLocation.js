@@ -13,7 +13,7 @@ const RevenueByLocation = () => {
     return (
         <React.Fragment>
             <Col lg={4} >
-                <Card>
+                <Card  style={{minHeight:'350px'}}>
                     <CardBody>
                         <h5 className="card-title mb-3">Revenue by Location</h5>
 

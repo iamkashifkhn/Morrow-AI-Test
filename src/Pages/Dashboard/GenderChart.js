@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import RadialChart from "./RadialChart";
 
-import { Card, CardBody, Col, Row } from "reactstrap";
+import { Card, CardBody, Col, Row, Spinner } from "reactstrap";
 
 // import { SocialSourceData } from "../../CommonData/Data/index";
 import CustomerGenderDistributionChart from "./CustomerGenderDistributionChart";
@@ -26,7 +26,7 @@ const Gender = ({ data, loading }) => {
                     style={{ backgroundColor: "#4CAEC9" }}
                     className={"avatar-title rounded-circle font-size-18"}
                   >
-                    <i className={"ri ri-male-circle-fill" + " text-white"}></i>
+                    <i className={"ri ri-male-circle-fill text-white"}></i>
                   </span>
                 </div>
                 <h5 className="font-size-15">Male</h5>
@@ -44,7 +44,7 @@ const Gender = ({ data, loading }) => {
                     className={"avatar-title rounded-circle font-size-18"}
                   >
                     <i
-                      className={"ri ri-female-fill text-white" + " text-white"}
+                      className={"ri ri-female-fill text-white"}
                     ></i>
                   </span>
                 </div>
@@ -63,7 +63,7 @@ const Gender = ({ data, loading }) => {
                     className={"avatar-title rounded-circle font-size-18"}
                   >
                     <i
-                      className={"ri ri-other-line text-white" + " text-white"}
+                      className={"ri ri-other-line text-white"}
                     ></i>
                   </span>
                 </div>
@@ -85,7 +85,7 @@ const Gender = ({ data, loading }) => {
                     style={{ backgroundColor: "#4CAEC9" }}
                     className={"avatar-title rounded-circle font-size-18"}
                   >
-                    <i className={"ri ri-male-circle-fill" + " text-white"}></i>
+                    <i className={"ri ri-male-circle-fill text-white"}></i>
                   </span>
                 </div>
                 <h5 className="font-size-15">Male</h5>
@@ -103,7 +103,7 @@ const Gender = ({ data, loading }) => {
                     className={"avatar-title rounded-circle font-size-18"}
                   >
                     <i
-                      className={"ri ri-female-fill text-white" + " text-white"}
+                      className={"ri ri-female-fill text-white"}
                     ></i>
                   </span>
                 </div>
@@ -122,7 +122,7 @@ const Gender = ({ data, loading }) => {
                     className={"avatar-title rounded-circle font-size-18"}
                   >
                     <i
-                      className={"ri ri-other-line text-white" + " text-white"}
+                      className={"ri ri-other-line text-white"}
                     ></i>
                   </span>
                 </div>
@@ -144,7 +144,7 @@ const Gender = ({ data, loading }) => {
                     style={{ backgroundColor: "#4CAEC9" }}
                     className={"avatar-title rounded-circle font-size-18"}
                   >
-                    <i className={"ri ri-male-circle-fill" + " text-white"}></i>
+                    <i className={"ri ri-male-circle-fill text-white"}></i>
                   </span>
                 </div>
                 <h5 className="font-size-15">Male</h5>
@@ -162,7 +162,7 @@ const Gender = ({ data, loading }) => {
                     className={"avatar-title rounded-circle font-size-18"}
                   >
                     <i
-                      className={"ri ri-female-fill text-white" + " text-white"}
+                      className={"ri ri-female-fill text-white"}
                     ></i>
                   </span>
                 </div>
@@ -181,7 +181,7 @@ const Gender = ({ data, loading }) => {
                     className={"avatar-title rounded-circle font-size-18"}
                   >
                     <i
-                      className={"ri ri-other-line text-white" + " text-white"}
+                      className={"ri ri-other-line text-white"}
                     ></i>
                   </span>
                 </div>
@@ -221,11 +221,21 @@ const Gender = ({ data, loading }) => {
                 </select>
               </div>
             </div>
-            <CustomerGenderDistributionChart
-              data={data}
-              loading={loading}
-              selectedOption={selectedOption}
-            />
+            {
+              data ? (
+                <CustomerGenderDistributionChart
+                data={data}
+                loading={loading}
+                selectedOption={selectedOption}
+              />
+              ) :
+              (
+                <div style={{display:'flex', justifyContent:'center', alignItems:'center', height:'300px'}}>
+                <Spinner/>
+                </div>
+              )
+            }
+
             {renderVisitorData()}
             {/* <Row>
                 <div  className="col-4">

@@ -3,11 +3,13 @@ import ReactApexChart from 'react-apexcharts';
 import { Spinner } from 'reactstrap';
 
 const MonthlyAverageVisits = ({ data, loading }) => {
+  let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November"]
+  let emptyData = [0,0,0,0,0,0,0,0,0,0,0]
   const monthlyData = {
     series: [
       {
         name: "Visits",
-        data: data?.totalVisitsLast12Months?.map(month => month.total_visitors) || [],
+        data: [...emptyData, ...(data?.totalVisitsLast12Months?.map(month => month.total_visitors) || [])],
       },
     ],
     options: {
@@ -30,7 +32,8 @@ const MonthlyAverageVisits = ({ data, loading }) => {
         },
       },
       xaxis: {
-        categories: data?.totalVisitsLast12Months?.map(month => `${month.year}-${month.month}`) || [],
+        // categories: [...months , ...data?.totalVisitsLast12Months?.map(month => `${month.year}-${month.month}`)] || [],
+        categories: [...months , "December"] || [],
         title: { text: "Months" },
       },
       yaxis: { title: { text: "Number of Visitors" }, min: 0, max: 5000 },

@@ -4,7 +4,7 @@ import { Col, Card, CardBody } from "reactstrap";
 const AllSites = () => {
   return (
     <Col xl={8}>
-      <Card>
+      <Card style={{minHeight:'350px'}}>
         <CardBody>
           <div className="flex-grow-1">
             <h5 className="card-title">All Sites Weekly Visits Summary</h5>

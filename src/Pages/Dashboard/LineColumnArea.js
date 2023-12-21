@@ -21,7 +21,7 @@ const LineColumnArea = ({ chartType, data, loading }) => {
           colors: ["#304758"],
         },
         formatter: function (val) {
-          return val?.toFixed(2);
+          return val?.toFixed(0);
         },
       },
       plotOptions: {
@@ -42,7 +42,7 @@ const LineColumnArea = ({ chartType, data, loading }) => {
         max: Math?.max(...hourlyAverages) + 10,
         labels: {
           formatter: function (value) {
-            return value?.toFixed(2);
+            return value?.toFixed(0);
           },
         },
       },
@@ -92,7 +92,7 @@ const LineColumnArea = ({ chartType, data, loading }) => {
         max: Math.max(...dailyAverages) + 10,
         labels: {
           formatter: function (value) {
-            return value.toFixed(2);
+            return value.toFixed(0);
           },
         },
       },
