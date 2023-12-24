@@ -19,7 +19,7 @@ const RevenueByLocation = () => {
 
                         <div style={{ height: "226px" }}>
                             <Vector
-                                value="us_aea"
+                                value="asia_mill"
                                 color="rgb(212, 218, 221)"
                             />
                         </div>

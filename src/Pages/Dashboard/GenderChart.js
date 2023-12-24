@@ -14,7 +14,7 @@ const Gender = ({ data, loading }) => {
     setSelectedOption(value);
   };
 
-  const renderVisitorData = () => {
+  const  renderVisitorData = () => {
     switch (selectedOption) {
       case "Day":
         return (

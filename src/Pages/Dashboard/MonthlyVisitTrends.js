@@ -7,7 +7,7 @@ const MonthlyVisitTrends = ({data, loading}) => {
     <Col xl={12}>
     <Card>
     <CardBody>
-      <CardTitle className="mb-4">Monthly Visit Trends</CardTitle>
+      <CardTitle className="mb-4"> Daily Visit Trends By Gender </CardTitle>
       <MonthlyVisitTrend data={data} loading={loading}/>
     </CardBody>
   </Card>

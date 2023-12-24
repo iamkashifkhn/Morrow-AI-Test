@@ -116,6 +116,7 @@ import ReactApexChart from "react-apexcharts";
 import { Spinner } from "reactstrap";
 
 const GenderDistribution = ({ data, loading }) => {
+  
   const [chartData, setChartData] = useState({
     series: [
       { name: "Male", data: [] },
@@ -163,6 +164,8 @@ const GenderDistribution = ({ data, loading }) => {
       },
     },
   });
+
+  
 
   useEffect(() => {
     if (data && data?.genderTrendLast7Hours) {

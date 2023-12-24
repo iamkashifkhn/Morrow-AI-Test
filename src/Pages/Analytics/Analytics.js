@@ -11,11 +11,32 @@ import axios from "axios";
 
 const authToken = "ea5ce7ef-82e7-480d-9acd-b0fefb5b810d";
 const API_URL = "http://4.246.138.166:5000/analytics/avg_gender_trends/";
+const BUSIEST_HOURS = "http://4.246.138.166:5000/analytics/average_visits/"
 
 const Analytics = () => {
   document.title = "Analytics | Morrow AI";
   const [data, setData] = useState(null)
+  const [busiestHours, setBusiestHours] = useState(null)
   const [loading,setLoading] = useState(false)
+
+  const getBusiestHours = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get(BUSIEST_HOURS, {
+        headers: {
+          Authorization: `${authToken}`,
+        },
+      });
+      if (response) {
+        setBusiestHours(response?.busiestHours2hInterval);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
   const getGenderDistributionByTimeSlot = async () => {
     setLoading(true);
@@ -37,6 +58,7 @@ const Analytics = () => {
 
   useEffect(() => {
     getGenderDistributionByTimeSlot()
+    getBusiestHours()
   }, []);
 
   if (loading) {
@@ -60,7 +82,7 @@ const Analytics = () => {
                 <CardBody>
                   <CardTitle className="mb-4">Busiest Hours of the Day</CardTitle>
                   {/* <LineApexChart /> */}
-                  <BusiestHour/>
+                  <BusiestHour data ={busiestHours} loading={loading}/>
                 </CardBody>
               </Card>
             </Col>

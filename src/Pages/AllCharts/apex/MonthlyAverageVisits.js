@@ -2,7 +2,17 @@ import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { Spinner } from 'reactstrap';
 
-const MonthlyAverageVisits = ({ data, loading }) => {
+const MonthlyAverageVisits = ({ data }) => {
+  if (!data) {
+    return (
+      <div className="page-content" style={{ display:'flex', justifyContent:'center'}}>
+      <Spinner className="m-5" color="primary">
+        Loading...
+      </Spinner>
+      </div>
+    );
+  }
+
   let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November"]
   let emptyData = [0,0,0,0,0,0,0,0,0,0,0]
   const monthlyData = {
@@ -50,15 +60,15 @@ const MonthlyAverageVisits = ({ data, loading }) => {
     },
   };
 
-  if (loading) {
-    return (
-      <div className="page-content" style={{ display:'flex', justifyContent:'center'}}>
-      <Spinner className="m-5" color="primary">
-        Loading...
-      </Spinner>
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="page-content" style={{ display:'flex', justifyContent:'center'}}>
+  //     <Spinner className="m-5" color="primary">
+  //       Loading...
+  //     </Spinner>
+  //     </div>
+  //   );
+  // }
 
   return (
     <React.Fragment>

@@ -64,7 +64,7 @@ const CustomerGenderDistributionChart = ({data, loading , selectedOption}) => {
         series={series}
         type="donut"
         height="350"
-        width="450"
+        // width="450"
         className="apex-charts"
       />
     </React.Fragment>

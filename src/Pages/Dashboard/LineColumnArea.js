@@ -3,8 +3,28 @@ import ReactApexChart from "react-apexcharts";
 import { Spinner } from "reactstrap";
 
 const LineColumnArea = ({ chartType, data, loading }) => {
-  const dailyAverages = data?.avgDailyVisits?.map((day) => Object?.values(day)[0]) || [];
-  const hourlyAverages = data?.avgHourlyVisits?.map((hour) => hour?.average_visitors) || [];
+  if (!data) {
+    return (
+      <div className="page-content" style={{ display:'flex', justifyContent:'center'}}>
+      <Spinner className="m-5" color="primary">
+        Loading...
+      </Spinner>
+      </div>
+    );
+  }
+
+  // const dailyAverages = data?.dailyVisits?.map((day) => Object?.values(day)[0]) || [];
+  const dailyAverages = Object?.values(data?.dailyVisits)?.slice(1) || [];
+  // const hourlyAverages = data?.hourlyVisits?.map((hour) => hour?.NoOfPeople) || [];
+  const hourlyAverages = data?.hourlyVisits?.map((entry) => entry.NoOfPeople);
+  
+  // const dateList= Object.keys(data?.dailyVisits)?.slice(1)
+  // const daysOfWeek = dateList.map((dateString) => {
+  //   const date = new Date(dateString);
+  //   const options = { weekday: 'short' };
+  //   return new Intl.DateTimeFormat('en-US', options).format(date);
+  // });
+  // console.log(daysOfWeek, "DATES")
 
   const dailyData = {
     series: [
@@ -39,7 +59,7 @@ const LineColumnArea = ({ chartType, data, loading }) => {
       yaxis: {
         title: { text: "Number of Visitors" },
         min: 0,
-        max: Math?.max(...hourlyAverages) + 10,
+        max: Math?.max(...dailyAverages) + 10,
         labels: {
           formatter: function (value) {
             return value?.toFixed(0);
@@ -89,7 +109,7 @@ const LineColumnArea = ({ chartType, data, loading }) => {
       yaxis: {
         title: { text: "Number of Visitors" },
         min: 0,
-        max: Math.max(...dailyAverages) + 10,
+        max: Math.max(...hourlyAverages) + 10,
         labels: {
           formatter: function (value) {
             return value.toFixed(0);
@@ -114,15 +134,16 @@ const LineColumnArea = ({ chartType, data, loading }) => {
 
   const chartData = chartType === "day" ? dailyData : hourlyData;
 
-  if (loading) {
-    return (
-      <div className="page-content" style={{ display:'flex', justifyContent:'center'}}>
-      <Spinner className="m-5" color="primary">
-        Loading...
-      </Spinner>
-      </div>
-    );
-  }
+  // const chartData = hourlyData
+  // if (!data) {
+  //   return (
+  //     <div className="page-content" style={{ display:'flex', justifyContent:'center'}}>
+  //     <Spinner className="m-5" color="primary">
+  //       Loading...
+  //     </Spinner>
+  //     </div>
+  //   );
+  // }
 
   return (
     <React.Fragment>

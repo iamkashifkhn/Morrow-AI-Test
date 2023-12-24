@@ -5,38 +5,25 @@ import {
     Card,
     CardBody,
     Col,
-    Row
+    Row,
+    Spinner
 } from "reactstrap";
-
-// import { OverViewData } from '../../CommonData/Data/index';
-
-const calculateSum = (arr) => {
-    return arr?.reduce((acc, value) => acc + value, 0);
-  };
-
-const calculateHourlyAverage = (arr) => {
-    const sum = calculateSum(arr);
-    return sum / arr?.length;
-  };
-
-const calculateAverage = (dataArr) => {
-    const sum = dataArr?.reduce((acc, item) => {
-      const value = Object.values(item)[0];
-      return acc + value;
-    }, 0);
-    return sum / dataArr?.length;
-  };
 
 
 const FootfallSummary = ({data, loading}) => {
     const [dataType, setDataType] = useState(null)
+    
 
     const handleData = (val)=>{
         setDataType(val)
     }
 
-    const avgDailyVisit = calculateAverage(data?.avgDailyVisits)
-    const avgHourlyVisit = calculateHourlyAverage(data?.avgHourlyVisits.map(item => item.average_visitors));
+    const totalPeopleHourly = data?.hourlyVisits?.reduce((sum, entry) => sum + entry.NoOfPeople, 0);
+    const averageHourlyVisits = totalPeopleHourly / data?.hourlyVisits?.length;
+
+    const totalDailyVisits = data && Object?.values(data?.dailyVisits)?.slice(1)
+    const avgDailyVisits = totalDailyVisits?.reduce((acc,count)=> acc + count , 0) / totalDailyVisits?.length
+
     
     return (
         <React.Fragment>
@@ -74,17 +61,17 @@ const FootfallSummary = ({data, loading}) => {
                                 <Col md={6}  className="border-end">
                                     <div>
                                         <p className="mb-2"><i className={"mdi mdi-circle font-size-12 me-1 text-primary" }></i> Average Hourly Visits</p>
-                                        <h5 className="font-size-16 mb-0"> {avgHourlyVisit.toFixed(2)}
-                                        {/* <span className="text-success font-size-12"><i className="mdi mdi-menu-up font-size-14 me-1"></i>{item.percentage} %</span> */}
-                                        </h5>
+                                        {averageHourlyVisits ? (<h5 className="font-size-16 mb-0"> {averageHourlyVisits?.toFixed(2) } </h5>) :
+                                         <Spinner color="primary" size="sm" />
+                                        }
                                     </div>
                                 </Col>
                                 <Col md={6}  className="border-end">
                                     <div>
                                         <p className="mb-2"><i className={"mdi mdi-circle font-size-12 me-1 text-light" }></i> Average Daily Visits</p>
-                                        <h5 className="font-size-16 mb-0"> {avgDailyVisit.toFixed(2)}
-                                        {/* <span className="text-success font-size-12"><i className="mdi mdi-menu-up font-size-14 me-1"></i>{item.percentage} %</span> */}
-                                        </h5>
+                                        {avgDailyVisits ? <h5 className="font-size-16 mb-0"> {avgDailyVisits?.toFixed(2)}</h5> :
+                                          <Spinner color="primary" size="sm" />
+                                        }
                                     </div>
                                 </Col>
                             </Row>
