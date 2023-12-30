@@ -28,7 +28,7 @@ const Analytics = () => {
         },
       });
       if (response) {
-        setBusiestHours(response?.busiestHours2hInterval);
+        setBusiestHours(response?.busiestHour7Days);
       }
     } catch (error) {
       console.log(error);

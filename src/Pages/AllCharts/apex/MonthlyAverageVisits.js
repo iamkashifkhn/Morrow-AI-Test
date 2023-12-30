@@ -33,9 +33,10 @@ const MonthlyAverageVisits = ({ data }) => {
           colors: ["#304758"],
         },
       },
+      // Math?.max(...data?.daily_visits_7_days?.map(entry => entry.total_visits)) + 100,
       plotOptions: {
         bar: {
-          borderRadius: 10,
+          borderRadius: 10, 
           dataLabels: {
             position: 'top',
           },
@@ -46,7 +47,10 @@ const MonthlyAverageVisits = ({ data }) => {
         categories: [...months , "December"] || [],
         title: { text: "Months" },
       },
-      yaxis: { title: { text: "Number of Visitors" }, min: 0, max: 5000 },
+      yaxis: { title: { text: "Number of Visitors" }, 
+      min: 0, 
+      max: Math?.max(...data?.totalVisitsLast12Months?.map(entry => entry.total_visitors)) + 100,
+    },
       legend: {
         position: 'top',
         offsetY: 30,
@@ -60,15 +64,6 @@ const MonthlyAverageVisits = ({ data }) => {
     },
   };
 
-  // if (loading) {
-  //   return (
-  //     <div className="page-content" style={{ display:'flex', justifyContent:'center'}}>
-  //     <Spinner className="m-5" color="primary">
-  //       Loading...
-  //     </Spinner>
-  //     </div>
-  //   );
-  // }
 
   return (
     <React.Fragment>

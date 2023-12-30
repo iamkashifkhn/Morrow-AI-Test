@@ -47,7 +47,7 @@ const UserPanel = ({ data, loading }) => {
   return (
     <React.Fragment>
       <Row>
-        <Col xl={3} sm={6}>
+        <Col xl={4} sm={6}>
           <Card style={{ height: "120px" }}>
             <CardBody>
               <div className="d-flex text-muted">
@@ -82,7 +82,7 @@ const UserPanel = ({ data, loading }) => {
           </Card>
         </Col>
 
-        <Col xl={3} sm={6}>
+        <Col xl={4} sm={6}>
           <Card style={{ height: "120px" }}>
             <CardBody>
               <div className="d-flex">
@@ -114,7 +114,7 @@ const UserPanel = ({ data, loading }) => {
           </Card>
         </Col>
 
-        <Col xl={3} sm={6}>
+        <Col xl={4} sm={6}>
           <Card style={{ height: "120px" }}>
             <CardBody>
               <div className="d-flex text-muted">
@@ -142,7 +142,7 @@ const UserPanel = ({ data, loading }) => {
             </CardBody>
           </Card>
         </Col>
-
+{/* 
         <Col xl={3} sm={6}>
           <Card style={{ height: "120px" }}>
             <CardBody>
@@ -157,19 +157,11 @@ const UserPanel = ({ data, loading }) => {
                 <div className="flex-grow-1 overflow-hidden">
                   <p className="mb-1">Changes</p>
                   <h5>435</h5>
-                  {/* <p className="text-truncate mb-0">
-                    <span className="text-success me-2">
-                      {" "}
-                      0.01%{" "}
-                      <i className="ri-arrow-right-up-line align-bottom ms-1"></i>
-                    </span>{" "}
-                    From previous
-                  </p> */}
                 </div>
               </div>
             </CardBody>
           </Card>
-        </Col>
+        </Col> */}
       </Row>
     </React.Fragment>
   );

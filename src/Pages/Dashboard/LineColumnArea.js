@@ -13,22 +13,13 @@ const LineColumnArea = ({ chartType, data, loading }) => {
     );
   }
 
-  // const dailyAverages = data?.dailyVisits?.map((day) => Object?.values(day)[0]) || [];
-  const dailyAverages = Object?.values(data?.dailyVisits)?.slice(1) || [];
-  // const hourlyAverages = data?.hourlyVisits?.map((hour) => hour?.NoOfPeople) || [];
-  const hourlyAverages = data?.hourlyVisits?.map((entry) => entry.NoOfPeople);
+  const dailyAverages = Object?.values(data?.daily_visits_7_days)?.slice(1) || [];
+  const hourlyAverages = data?.hourlyVisits?.map((entry) => entry.total_traffic);
   
-  // const dateList= Object.keys(data?.dailyVisits)?.slice(1)
-  // const daysOfWeek = dateList.map((dateString) => {
-  //   const date = new Date(dateString);
-  //   const options = { weekday: 'short' };
-  //   return new Intl.DateTimeFormat('en-US', options).format(date);
-  // });
-  // console.log(daysOfWeek, "DATES")
 
   const dailyData = {
     series: [
-      { name: "Visits", data: dailyAverages  },
+      { name: "Visits", data: dailyAverages.map(entry => entry.total_visits)  },
     ],
     options: {
       chart: { zoom: { enabled: false }, toolbar: { show: true } },
@@ -53,13 +44,18 @@ const LineColumnArea = ({ chartType, data, loading }) => {
         }
       },
       xaxis: {
-        categories: ["Sun" ,"Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+        categories: data?.daily_visits_7_days?.slice(1).map(entry => {
+          const date = new Date(entry.date);
+          const options = { weekday: 'short' };
+          return new Intl.DateTimeFormat('en-US', options).format(date);
+        }),
+        
         title: { text: "Days" },
       },
       yaxis: {
         title: { text: "Number of Visitors" },
         min: 0,
-        max: Math?.max(...dailyAverages) + 10,
+        max: Math?.max(...data?.daily_visits_7_days?.map(entry => entry.total_visits)) + 100,
         labels: {
           formatter: function (value) {
             return value?.toFixed(0);
@@ -99,11 +95,7 @@ const LineColumnArea = ({ chartType, data, loading }) => {
         }
       },
       xaxis: {
-        categories: [
-          "12 AM", "1 AM", "2 AM", "3 AM", "4 AM", "5 AM",
-          "6 AM", "7 AM", "8 AM", "9 AM", "10 AM", "11 AM",
-          "12 PM", "1 PM", "2 PM", "3 PM", "4 PM" , "5 PM", "6 PM", "7 PM", "8 PM", "9 PM", "10 PM", "11 PM"
-        ],
+        categories: data?.hourlyVisits?.map(entry => entry.hour.toString()) || [],
         title: { text: "Hours" },
       },
       yaxis: {
@@ -133,17 +125,6 @@ const LineColumnArea = ({ chartType, data, loading }) => {
   };
 
   const chartData = chartType === "day" ? dailyData : hourlyData;
-
-  // const chartData = hourlyData
-  // if (!data) {
-  //   return (
-  //     <div className="page-content" style={{ display:'flex', justifyContent:'center'}}>
-  //     <Spinner className="m-5" color="primary">
-  //       Loading...
-  //     </Spinner>
-  //     </div>
-  //   );
-  // }
 
   return (
     <React.Fragment>
