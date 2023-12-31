@@ -128,7 +128,7 @@ const UserPanel = ({ data, loading }) => {
 
                 <div className="flex-grow-1 overflow-hidden">
                   <p className="mb-1">Current Occupancy</p>
-                  <h5 className="mb-3">24.03 %</h5>
+                  <h5 className="mb-3">54.03 %</h5>
                   {/* <p className="text-truncate mb-0">
                     <span className="text-danger me-2">
                       {" "}

@@ -22,7 +22,7 @@ const FootfallSummary = ({data, loading}) => {
     const averageHourlyVisits = totalPeopleHourly / data?.hourlyVisits?.length;
 
     const totalDailyVisits = data && data?.daily_visits_7_days?.map(entry => entry.total_visits);
-    const avgDailyVisits = totalDailyVisits?.reduce((acc,count)=> acc + count , 0) / totalDailyVisits?.length
+    const avgDailyVisits = totalDailyVisits?.slice(1).reduce((acc,count)=> acc + count , 0) / totalDailyVisits?.length -1
 
     
     return (

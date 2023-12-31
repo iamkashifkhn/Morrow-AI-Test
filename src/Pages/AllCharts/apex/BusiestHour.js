@@ -60,6 +60,68 @@
 
 // export default HeatmapChart;
 
+// import React from 'react';
+// import Chart from 'react-apexcharts';
+// import { Spinner } from 'reactstrap';
+
+// const HeatmapChart = ({ data }) => {
+//   if (!data) {
+//     return (
+//       <div className="page-content" style={{ display:'flex', justifyContent:'center'}}>
+//       <Spinner className="m-5" color="primary">
+//         Loading...
+//       </Spinner>
+//       </div>
+//     );
+//   }
+  
+
+//   const options = {
+//     chart: {
+//       type: 'heatmap',
+//     },
+//     dataLabels: {
+//       enabled: false,
+//     },
+//     colors: ['#008FFB'],
+//     xaxis: {
+//       type: 'category',
+//       title : {
+//         text: "Hours"
+//       }
+//       // categories: Object?.keys(data),
+//     },
+//     yaxis: {
+//       title: {
+//         text: 'Date',
+//         // categories: Object.keys(data[Object.keys(data)[0]]).map(entry => entry.hour),
+//       },
+//     },
+//     plotOptions: {
+//       heatmap: {
+//         radius: 30,
+//       },
+//     },
+//   };
+
+//   const series = Object.keys(data).map((date) => ({
+//     name: date,
+//     data: data[date].map((entry) => ({
+//       x: entry.hour,
+//       y: entry.visits,
+//       // value: entry.visits,
+//     })).slice(1),
+//   }));
+
+//   return (
+//     <div>
+//       <Chart options={options} series={series} type="heatmap" height="400" />
+//     </div>
+//   );
+// };
+
+// export default HeatmapChart;
+
 import React from 'react';
 import Chart from 'react-apexcharts';
 import { Spinner } from 'reactstrap';
@@ -67,14 +129,17 @@ import { Spinner } from 'reactstrap';
 const HeatmapChart = ({ data }) => {
   if (!data) {
     return (
-      <div className="page-content" style={{ display:'flex', justifyContent:'center'}}>
-      <Spinner className="m-5" color="primary">
-        Loading...
-      </Spinner>
+      <div className="page-content" style={{ display: 'flex', justifyContent: 'center' }}>
+        <Spinner className="m-5" color="primary">
+          Loading...
+        </Spinner>
       </div>
     );
   }
-  
+
+  // Remove the first index from the x-axis categories and y-axis data
+  const categories = Object.keys(data).slice(1);
+  const yData = Object.keys(data[categories[0]]).map((entry) => entry.hour).slice(1);
 
   const options = {
     chart: {
@@ -86,16 +151,16 @@ const HeatmapChart = ({ data }) => {
     colors: ['#008FFB'],
     xaxis: {
       type: 'category',
-      title : {
-        text: "Hours"
-      }
-      // categories: Object?.keys(data),
+      title: {
+        text: 'Hours',
+      },
+      categories: categories,
     },
     yaxis: {
       title: {
         text: 'Date',
-        // categories: Object.keys(data[Object.keys(data)[0]]).map(entry => entry.hour),
       },
+      categories: yData,
     },
     plotOptions: {
       heatmap: {
@@ -104,13 +169,13 @@ const HeatmapChart = ({ data }) => {
     },
   };
 
-  const series = Object.keys(data).map((date) => ({
+  // Remove the first index from the series data
+  const series = categories.map((date) => ({
     name: date,
     data: data[date].map((entry) => ({
       x: entry.hour,
-      y: entry.visits,
-      // value: entry.visits,
-    })),
+      y: `${entry.visits} visits`,
+    })).slice(1),
   }));
 
   return (

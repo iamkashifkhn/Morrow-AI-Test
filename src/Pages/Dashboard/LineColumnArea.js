@@ -55,7 +55,7 @@ const LineColumnArea = ({ chartType, data, loading }) => {
       yaxis: {
         title: { text: "Number of Visitors" },
         min: 0,
-        max: Math?.max(...data?.daily_visits_7_days?.map(entry => entry.total_visits)) + 100,
+        max: Math?.max(...data?.daily_visits_7_days?.slice(1).map(entry => entry.total_visits)) + 100,
         labels: {
           formatter: function (value) {
             return value?.toFixed(0);
