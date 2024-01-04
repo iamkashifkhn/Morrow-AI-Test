@@ -124,7 +124,7 @@ const LineColumnArea = ({ chartType, data, loading }) => {
     },
   };
 
-  const chartData = chartType === "day" ? dailyData : hourlyData;
+  const chartData = chartType === "hour" ? hourlyData : dailyData;
 
   return (
     <React.Fragment>

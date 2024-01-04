@@ -92,7 +92,7 @@ const FootfallSummary = ({ data, loading }) => {
       setDataType(val);
     };
   
-    const totalPeopleHourly = data?.hourlyVisits?.reduce(
+    const totalPeopleHourly = data && data?.hourlyVisits?.reduce(
       (sum, entry) => sum + entry.total_traffic,
       0
     );
@@ -170,7 +170,7 @@ const FootfallSummary = ({ data, loading }) => {
                         ></i>{" "}
                         Average Daily Visits
                       </p>
-                      {avgDailyVisits !== undefined ? (
+                      {avgDailyVisits ? (
                         <h5 className="font-size-16 mb-0">
                           {" "}
                           {avgDailyVisits?.toFixed(2)}
