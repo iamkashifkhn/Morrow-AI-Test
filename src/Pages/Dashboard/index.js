@@ -96,15 +96,15 @@ const Dashboard = () => {
   }, []);
 
 
-  if (loading) {
-    return (
-      <div className="page-content" style={{ display:'flex', justifyContent:'center'}}>
-      <Spinner className="m-5" color="primary">
-        Loading...
-      </Spinner>
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="page-content" style={{ display:'flex', justifyContent:'center'}}>
+  //     <Spinner className="m-5" color="primary">
+  //       Loading...
+  //     </Spinner>
+  //     </div>
+  //   );
+  // }
 
   return (
     <React.Fragment>
