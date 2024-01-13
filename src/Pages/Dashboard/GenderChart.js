@@ -7,7 +7,7 @@ import { Card, CardBody, Col, Row, Spinner } from "reactstrap";
 import CustomerGenderDistributionChart from "./CustomerGenderDistributionChart";
 
 const Gender = ({ data, loading }) => {
-  const [selectedOption, setSelectedOption] = useState("Week");
+  const [selectedOption, setSelectedOption] = useState("Day");
 
   const handleSelectChange = (e) => {
     const value = e.target.value;

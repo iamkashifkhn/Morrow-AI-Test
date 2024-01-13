@@ -2,7 +2,7 @@ import React from 'react';
 import Chart from 'react-apexcharts';
 import { Spinner } from 'reactstrap';
 
-const HeatmapChart = ({ data }) => {
+const HeatmapChart = ({ data}) => {
   if (!data) {
     return (
       <div className="page-content" style={{ display: 'flex', justifyContent: 'center' }}>

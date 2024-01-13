@@ -11,7 +11,7 @@ import axios from "axios";
 
 const authToken = "ea5ce7ef-82e7-480d-9acd-b0fefb5b810d";
 const API_URL = "http://4.246.138.166:5000/analytics/avg_gender_trends/";
-const BUSIEST_HOURS = "http://4.246.138.166:5000/analytics/average_visits/"
+const BUSIEST_HOURS = "http://4.246.138.166:5000/analytics/busiest_hour/"
 
 const Analytics = () => {
   document.title = "Analytics | Morrow AI";
@@ -27,6 +27,7 @@ const Analytics = () => {
           Authorization: `${authToken}`,
         },
       });
+      console.log(response)
       if (response) {
         setBusiestHours(response?.busiestHour7Days);
       }
@@ -82,7 +83,7 @@ const Analytics = () => {
                 <CardBody>
                   <CardTitle className="mb-4">Busiest Hours of the Day</CardTitle>
                   {/* <LineApexChart /> */}
-                  <BusiestHour data ={busiestHours} loading={loading}/>
+                  <BusiestHour data ={busiestHours || null} loading={loading}/>
                 </CardBody>
               </Card>
             </Col>
