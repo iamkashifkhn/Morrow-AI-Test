@@ -116,6 +116,7 @@ import ReactApexChart from "react-apexcharts";
 import { Spinner } from "reactstrap";
 
 const GenderDistribution = ({ data, loading }) => {
+
   
   const [chartData, setChartData] = useState({
     series: [
@@ -207,7 +208,7 @@ const GenderDistribution = ({ data, loading }) => {
     }
   }, [data]);
 
-  if (loading) {
+  if (!data) {
     return (
       <div className="page-content" style={{ display:'flex', justifyContent:'center'}}>
       <Spinner className="m-5" color="primary">

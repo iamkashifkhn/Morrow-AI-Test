@@ -36,7 +36,7 @@ const UserPanel = ({ data, loading }) => {
   return (
     <React.Fragment>
       <Row>
-        <Col xl={4} sm={6}>
+        <Col xl={3} sm={6}>
           <Card style={{ height: "120px" }}>
             <CardBody>
               <div className="d-flex text-muted">
@@ -70,7 +70,7 @@ const UserPanel = ({ data, loading }) => {
           </Card>
         </Col>
 
-        <Col xl={4} sm={6}>
+        <Col xl={3} sm={6}>
           <Card style={{ height: "120px" }}>
             <CardBody>
               <div className="d-flex">
@@ -102,7 +102,7 @@ const UserPanel = ({ data, loading }) => {
           </Card>
         </Col>
 
-        <Col xl={4} sm={6}>
+        <Col xl={3} sm={6}>
           <Card style={{ height: "120px" }}>
             <CardBody>
               <div className="d-flex text-muted">
@@ -117,6 +117,23 @@ const UserPanel = ({ data, loading }) => {
                 <div className="flex-grow-1 overflow-hidden">
                   <p className="mb-1">Current Occupancy</p>
                   <h5 className="mb-3">54.03 %</h5>
+                </div>
+              </div>
+            </CardBody>
+          </Card>
+        </Col>
+        {/* mdi-account-clock-outline */}
+        <Col xl={3} sm={6}>
+          <Card style={{ height: "120px" }}>
+            <CardBody>
+              <div className="d-flex text-muted">
+                <div className="flex-shrink-0 me-3 align-self-center text-primary">
+                <i className="mdi mdi-36px  mdi-account-clock-outline"></i>
+                </div>
+
+                <div className="flex-grow-1 overflow-hidden">
+                  <p className="mb-1">Average Waiting Time (Minutes)</p>
+                  <h3 className="mb-3">10</h3>
                 </div>
               </div>
             </CardBody>
