@@ -10,8 +10,8 @@ import BusiestHour from "../AllCharts/apex/BusiestHour";
 import axios from "axios";
 
 const authToken = "ea5ce7ef-82e7-480d-9acd-b0fefb5b810d";
-const API_URL = "http://4.246.138.166:5000/analytics/avg_gender_trends/";
-const BUSIEST_HOURS = "http://4.246.138.166:5000/analytics/busiest_hour/"
+const API_URL = `${process.env.REACT_APP_API_URL}/analytics/avg_gender_trends/`;
+const BUSIEST_HOURS = `${process.env.REACT_APP_API_URL}/analytics/busiest_hour/`
 
 const Analytics = () => {
   document.title = "Analytics | Morrow AI";
