@@ -17,9 +17,9 @@ import FootfallSummary from "./FootfallSummary";
 import AllSites from "./AllSites";
 
 const authToken = "ea5ce7ef-82e7-480d-9acd-b0fefb5b810d";
-const API_URL = "http://4.246.138.166:5000/analytics/total_visits/";
-const VISITOR_VOLUME_GRAPH = "http://4.246.138.166:5000/analytics/average_visits/"
-const GET_MONTHLY_TREND = "http://4.246.138.166:5000/analytics/gender_trends/"
+const API_URL = `${process.env.REACT_APP_API_URL}/analytics/total_visits/`;
+const VISITOR_VOLUME_GRAPH = `${process.env.REACT_APP_API_URL}/analytics/average_visits/`
+const GET_MONTHLY_TREND = `${process.env.REACT_APP_API_URL}/analytics/gender_trends/`
 
 const Dashboard = () => {
   document.title = "Dashboard | Morrow AI";
