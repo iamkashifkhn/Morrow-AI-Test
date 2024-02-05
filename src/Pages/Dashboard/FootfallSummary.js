@@ -76,11 +76,14 @@ const FootfallSummary = ({ data, loading }) => {
                       ></i>{" "}
                       Average Hourly Visits
                     </p>
-                    {averageHourlyVisits ? (
+                    {averageHourlyVisits !== undefined &&
+                    averageHourlyVisits !== null ? (
                       <h5 className="font-size-16 mb-0">
                         {" "}
-                        {averageHourlyVisits?.toFixed(2)}{" "}
+                        {averageHourlyVisits.toFixed(2)}{" "}
                       </h5>
+                    ) : averageHourlyVisits === null ? (
+                      <h5 className="font-size-16 mb-0"> 0 </h5>
                     ) : (
                       <Spinner color="primary" size="sm" />
                     )}

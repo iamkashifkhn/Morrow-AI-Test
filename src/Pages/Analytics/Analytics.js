@@ -27,7 +27,6 @@ const Analytics = () => {
           Authorization: `${authToken}`,
         },
       });
-      console.log(response)
       if (response) {
         setBusiestHours(response?.busiestHour7Days);
       }

@@ -3,6 +3,7 @@ import ReactApexChart from 'react-apexcharts';
 import { Spinner } from 'reactstrap';
 
 const MonthlyAverageVisits = ({ data }) => {
+  // console.log(data, "HELLO")
   if (!data) {
     return (
       <div className="page-content" style={{ display:'flex', justifyContent:'center'}}>

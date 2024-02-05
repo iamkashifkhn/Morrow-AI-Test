@@ -61,7 +61,7 @@ const BusiestHoursChart = ({ data, loading }) => {
         categories: dateLabels,
         title: { text: "Date" },
       },
-      yaxis: { title: { text: "Number of Visitors" }, min: 0, max: Math.max(...maleData, ...femaleData, ...kidsData) + 1000 },
+      yaxis: { title: { text: "Number of Visitors" }, min: 0, max: Math.max(...maleData, ...femaleData, ...kidsData) + 150 },
       legend: {
         show: true,
         position: "top",
