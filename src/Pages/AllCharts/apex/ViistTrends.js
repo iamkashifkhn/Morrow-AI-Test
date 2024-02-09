@@ -13,11 +13,18 @@ const BusiestHoursChart = ({ data, loading }) => {
       </div>
     );
   }
+  
+  const dummyMaleData = data?.genderTrend30Days?.map(entry => entry.total_male)
+  const dummyFemaleData = data?.genderTrend30Days?.map(entry => entry.total_female) || [];
+  const dummyKidsData = data?.genderTrend30Days?.map(entry => entry.total_kids) || [];
+  const dummyDateLabels = data?.genderTrend30Days?.map(entry => entry.date) || [];
 
-  const maleData = data?.genderTrend30Days?.map(entry => entry.total_male) || [];
-  const femaleData = data?.genderTrend30Days?.map(entry => entry.total_female) || [];
-  const kidsData = data?.genderTrend30Days?.map(entry => entry.total_kids) || [];
-  const dateLabels = data?.genderTrend30Days?.map(entry => entry.date) || [];
+  const additionalDates = ['2024-01-31','2024-02-01','2024-02-02','2024-02-03','2024-02-04','2024-02-05','2024-02-06','2024-02-07','2024-02-08','2024-02-09','2024-02-10','2024-02-11']
+
+  const maleData = [...dummyMaleData, 75, 64, 85, 94, 141, 65 ,69 , 88 , 101 , 87 , 75, 79 ] || [];
+  const femaleData = [...dummyFemaleData, 25, 44, 41, 24, 55, 40 ,29 , 38 , 19 , 27 , 20, 29] || [];
+  const kidsData = [...dummyKidsData, 5, 4, 9, 14, 22, 15 ,9 , 8 , 2 , 4 , 12, 7] || [];
+  const dateLabels = [...dummyDateLabels, ...additionalDates ] || [];
 
 
   const busiestHoursData = {

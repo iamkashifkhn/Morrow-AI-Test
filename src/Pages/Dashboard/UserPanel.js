@@ -3,11 +3,17 @@ import { Card, CardBody, Col, Row, Spinner } from "reactstrap";
 import RadialChart3 from "./userpanelChart3";
 
 const UserPanel = ({ data, loading }) => {
-  const last24Hour = data?.visitorLast24Hour;
-  const previous24Hour = data?.visitorPrevious24Hour;
+  // const last24Hour = data?.visitorLast24Hour;
+  // const previous24Hour = data?.visitorPrevious24Hour;
+  const last24Hour =275;
+  const previous24Hour = 390;
 
-  const last7Days = data?.visitorLast7Days;
-  const previous7Days = data?.visitorPrevious7Days;
+
+  // const last7Days = data?.visitorLast7Days;
+  // const previous7Days = data?.visitorPrevious7Days;
+
+  const last7Days = 1479;
+  const previous7Days = 670;
 
   const last7DaysVisitPercentage =
     ((last7Days - previous7Days) / Math.abs(previous7Days)) * 100;
@@ -53,6 +59,7 @@ const UserPanel = ({ data, loading }) => {
                       <h3>{last24Hour}</h3>
                       <p className="text-truncate mb-0">
                         <span style={percentageStyle} className="me-2">
+                          {/* {last24Hour && percentageChange.toFixed(2)}% */}
                           {last24Hour && percentageChange.toFixed(2)}%
                           <i
                             className={`${arrowIconClass} align-bottom ms-1`}

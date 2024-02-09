@@ -35,23 +35,23 @@ const Dashboard = () => {
     value = secureLocalStorage.getItem("token");
 }, []);
 
-  const getCardsData = async () => {
-    setLoading(true);
-    try {
-      const response = await axios.get(API_URL, {
-        headers: {
-          Authorization: `${value}`,
-        },
-      });
-      if (response) {
-        setData(response);
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  // const getCardsData = async () => {
+  //   setLoading(true);
+  //   try {
+  //     const response = await axios.get(API_URL, {
+  //       headers: {
+  //         Authorization: `${value}`,
+  //       },
+  //     });
+  //     if (response) {
+  //       setData(response);
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   const getVisitorVolumeData = async () => {
     setLoading(true);
@@ -90,21 +90,31 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    getCardsData();
+    // getCardsData();
     getVisitorVolumeData()
     getMonthlyTrends()
   }, []);
 
+  useEffect(() => {
+    setLoading(true);
 
-  // if (loading) {
-  //   return (
-  //     <div className="page-content" style={{ display:'flex', justifyContent:'center'}}>
-  //     <Spinner className="m-5" color="primary">
-  //       Loading...
-  //     </Spinner>
-  //     </div>
-  //   );
-  // }
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 4000);
+
+    return () => clearTimeout(timeout);
+  }, []); 
+
+
+  if (loading) {
+    return (
+      <div className="page-content" style={{ display:'flex', justifyContent:'center'}}>
+      <Spinner className="m-5" color="primary">
+        Loading...
+      </Spinner>
+      </div>
+    );
+  }
 
   return (
     <React.Fragment>

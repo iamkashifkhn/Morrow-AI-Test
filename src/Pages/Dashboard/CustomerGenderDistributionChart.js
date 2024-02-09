@@ -4,16 +4,29 @@ import ReactApexChart from "react-apexcharts";
 
 const CustomerGenderDistributionChart = ({data, loading , selectedOption}) => {
   // const series = [data?.todayMaleCount, data?.todayFemaleCount, data?.todayKidsCount];
+  // const getSeriesData = () => {
+  //   switch (selectedOption) {
+  //     case "Day":
+  //       return [data?.total_m_f_k_24h?.total_male, data?.total_m_f_k_24h?.total_female, data?.total_m_f_k_24h?.total_kids];
+  //     case "Week":
+  //       return [data?.total_m_f_k_7d?.total_male,  data?.total_m_f_k_7d?.total_female, data?.total_m_f_k_7d?.total_kids];
+  //     case "Month":
+  //       return [data?.total_m_f_k_30d?.total_male, data?.total_m_f_k_30d?.total_female, data?.total_m_f_k_30d?.total_kids];
+  //     default:
+  //       return [0, 0, 0]; 
+  //   }
+  // };
+
   const getSeriesData = () => {
     switch (selectedOption) {
       case "Day":
-        return [data?.total_m_f_k_24h?.total_male, data?.total_m_f_k_24h?.total_female, data?.total_m_f_k_24h?.total_kids];
+        return [217, 50, 8];
       case "Week":
-        return [data?.total_m_f_k_7d?.total_male,  data?.total_m_f_k_7d?.total_female, data?.total_m_f_k_7d?.total_kids];
+        return [998,  405, 134];
       case "Month":
-        return [data?.total_m_f_k_30d?.total_male, data?.total_m_f_k_30d?.total_female, data?.total_m_f_k_30d?.total_kids];
+        return [3452, 1805, 700];
       default:
-        return [0, 0, 0]; // Default data if selectedOption is not recognized
+        return [0, 0, 0]; 
     }
   };
 

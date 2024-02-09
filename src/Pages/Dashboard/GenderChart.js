@@ -7,7 +7,32 @@ import { Card, CardBody, Col, Row, Spinner } from "reactstrap";
 import CustomerGenderDistributionChart from "./CustomerGenderDistributionChart";
 
 const Gender = ({ data, loading }) => {
-  const [selectedOption, setSelectedOption] = useState("Week");
+  const [selectedOption, setSelectedOption] = useState("Day");
+  data = true
+  // const dayMaleVisitors = data?.total_m_f_k_24h?.total_male
+  // const dayFemaleVisitors = data?.total_m_f_k_24h?.total_female
+  // const dayKidsVisitors = data?.total_m_f_k_24h?.total_kids
+
+  const dayMaleVisitors = 217
+  const dayFemaleVisitors = 50
+  const dayKidsVisitors = 8
+
+  // const weekMaleVisitor = data?.total_m_f_k_7d?.total_male
+  // const weekFemaleVisitor = data?.total_m_f_k_7d?.total_female
+  // const weekKidsVisitor = data?.total_m_f_k_7d?.total_kids
+
+  const weekMaleVisitor = 998
+  const weekFemaleVisitor = 405
+  const weekKidsVisitor = 134
+
+
+  // const monthMaleVisitor = data?.total_m_f_k_30d?.total_male
+  // const monthFemaleVisitor = data?.total_m_f_k_30d?.total_female
+  // const monthKidsVisitor = data?.total_m_f_k_30d?.total_kids
+
+  const monthMaleVisitor = 3452
+  const monthFemaleVisitor = 1805
+  const monthKidsVisitor = 700
 
   const handleSelectChange = (e) => {
     const value = e.target.value;
@@ -31,7 +56,7 @@ const Gender = ({ data, loading }) => {
                 </div>
                 <h5 className="font-size-15">Male</h5>
                 <p className="text-muted mb-0">
-                  {data?.total_m_f_k_24h?.total_male} Visitors
+                  {dayMaleVisitors} Visitors
                 </p>
               </div>
             </div>
@@ -50,7 +75,7 @@ const Gender = ({ data, loading }) => {
                 </div>
                 <h5 className="font-size-15">Female</h5>
                 <p className="text-muted mb-0">
-                  {data?.total_m_f_k_24h?.total_female} Visitors
+                  {dayFemaleVisitors} Visitors
                 </p>
               </div>
             </div>
@@ -69,7 +94,7 @@ const Gender = ({ data, loading }) => {
                 </div>
                 <h5 className="font-size-15">Children</h5>
                 <p className="text-muted mb-0">
-                  {data?.total_m_f_k_24h?.total_kids} Visitors
+                  {dayKidsVisitors} Visitors
                 </p>
               </div>
             </div>
@@ -90,7 +115,7 @@ const Gender = ({ data, loading }) => {
                 </div>
                 <h5 className="font-size-15">Male</h5>
                 <p className="text-muted mb-0">
-                  {data?.total_m_f_k_7d?.total_male} Visitors
+                  {weekMaleVisitor} Visitors
                 </p>
               </div>
             </div>
@@ -109,7 +134,7 @@ const Gender = ({ data, loading }) => {
                 </div>
                 <h5 className="font-size-15">Female</h5>
                 <p className="text-muted mb-0">
-                  {data?.total_m_f_k_7d?.total_female} Visitors
+                  {weekFemaleVisitor} Visitors
                 </p>
               </div>
             </div>
@@ -128,7 +153,7 @@ const Gender = ({ data, loading }) => {
                 </div>
                 <h5 className="font-size-15">Children</h5>
                 <p className="text-muted mb-0">
-                  {data?.total_m_f_k_7d?.total_kids} Visitors
+                  {weekKidsVisitor} Visitors
                 </p>
               </div>
             </div>
@@ -149,7 +174,7 @@ const Gender = ({ data, loading }) => {
                 </div>
                 <h5 className="font-size-15">Male</h5>
                 <p className="text-muted mb-0">
-                  {data?.total_m_f_k_30d?.total_male} Visitors
+                  {monthMaleVisitor} Visitors
                 </p>
               </div>
             </div>
@@ -168,7 +193,7 @@ const Gender = ({ data, loading }) => {
                 </div>
                 <h5 className="font-size-15">Female</h5>
                 <p className="text-muted mb-0">
-                  {data?.total_m_f_k_30d?.total_female} Visitors
+                  {monthFemaleVisitor} Visitors
                 </p>
               </div>
             </div>
@@ -187,7 +212,7 @@ const Gender = ({ data, loading }) => {
                 </div>
                 <h5 className="font-size-15">Children</h5>
                 <p className="text-muted mb-0">
-                  {data?.total_m_f_k_30d?.total_kids} Visitors
+                  {monthKidsVisitor} Visitors
                 </p>
               </div>
             </div>

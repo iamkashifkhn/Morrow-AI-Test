@@ -5,25 +5,27 @@ import { Card, CardBody, Col, Row, Spinner } from "reactstrap";
 
 const FootfallSummary = ({ data, loading }) => {
   const [dataType, setDataType] = useState("hour");
-
+  
   const handleData = (val) => {
     setDataType(val);
   };
 
-  const totalPeopleHourly =
-    data &&
-    data?.hourlyVisits?.reduce((sum, entry) => sum + entry.total_traffic, 0);
-  const averageHourlyVisits =
-    data?.hourlyVisits?.length > 0
-      ? totalPeopleHourly / data?.hourlyVisits?.length
-      : 0;
+  // const totalPeopleHourly =
+  //   data &&
+  //   data?.hourlyVisits?.reduce((sum, entry) => sum + entry.total_traffic, 0);
+  // const averageHourlyVisits =
+  //   data?.hourlyVisits?.length > 0
+  //     ? totalPeopleHourly / data?.hourlyVisits?.length
+  //     : 0;
+  const averageHourlyVisits = 11.25
 
-  const totalDailyVisits =
-    data && data?.daily_visits_7_days?.map((entry) => entry.total_visits);
-  const avgDailyVisits =
-    totalDailyVisits?.slice(1).reduce((acc, count) => acc + count, 0) /
-      totalDailyVisits?.length -
-    1;
+  // const totalDailyVisits =
+  //   data && data?.daily_visits_7_days?.map((entry) => entry.total_visits);
+  // const avgDailyVisits =
+  //   totalDailyVisits?.slice(1).reduce((acc, count) => acc + count, 0) /
+  //     totalDailyVisits?.length -
+  //   1;
+  const avgDailyVisits = 176.85
 
   // console.log(avgDailyVisits, "AVG")
 

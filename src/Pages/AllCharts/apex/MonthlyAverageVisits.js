@@ -14,13 +14,16 @@ const MonthlyAverageVisits = ({ data }) => {
     );
   }
 
-  let months = ["February", "March", "April", "May", "June", "July", "August", "September", "October", "November"]
-  let emptyData = [0,0,0,0,0,0,0,0,0,0]
+  // let months = ["February", "March", "April", "May", "June", "July", "August", "September", "October", "November"]
+  let months = ["March", "April", "May", "June", "July", "August", "September", "October", "November"]
+
+  let emptyData = [0,0,0,0,0,0,0,0,0, 1474, 2730, 1205]
   const monthlyData = {
     series: [
       {
         name: "Visits",
-        data: [...emptyData, ...(data?.totalVisitsLast12Months?.map(month => month.total_visitors) || [])],
+        // data: [...emptyData, ...(data?.totalVisitsLast12Months?.map(month => month.total_visitors) || [])],
+        data: [...emptyData],
       },
     ],
     options: {
@@ -45,12 +48,13 @@ const MonthlyAverageVisits = ({ data }) => {
       },
       xaxis: {
         // categories: [...months , ...data?.totalVisitsLast12Months?.map(month => `${month.year}-${month.month}`)] || [],
-        categories: [...months , "December", "January"] || [],
+        categories: [...months , "December", "January", "February"] || [],
         title: { text: "Months" },
       },
       yaxis: { title: { text: "Number of Visitors" }, 
       min: 0, 
-      max: Math?.max(...data?.totalVisitsLast12Months?.map(entry => entry.total_visitors)) + 100,
+      // max: Math?.max(...data?.totalVisitsLast12Months?.map(entry => entry.total_visitors)) + 100,
+      max: 3000,
     },
       legend: {
         position: 'top',

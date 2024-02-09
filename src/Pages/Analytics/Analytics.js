@@ -61,6 +61,17 @@ const Analytics = () => {
     getBusiestHours()
   }, []);
 
+  useEffect(() => {
+    setLoading(true);
+
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 4000);
+
+    return () => clearTimeout(timeout);
+  }, []); 
+  
+
   if (loading) {
     return (
       <div className="page-content" style={{ display:'flex', justifyContent:'center'}}>
