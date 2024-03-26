@@ -15,7 +15,7 @@ const RevenueByLocation = () => {
             <Col lg={4} >
                 <Card  style={{minHeight:'350px'}}>
                     <CardBody>
-                        <h5 className="card-title mb-3">Revenue by Location</h5>
+                        <h5 className="card-title mb-3"> Locations</h5>
 
                         <div style={{ height: "226px" }}>
                             <Vector

@@ -26,53 +26,53 @@ const AllSites = () => {
               <tbody>
                 <tr>
                   <th scope="row">Branch 1</th>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
+                  <td>3.2k</td>
+                  <td>5.1k</td>
+                  <td>3.8k</td>
+                  <td>4.6k</td>
+                  <td>7.24k</td>
+                  <td>3.8k</td>
+                  <td>5.2k</td>
                 </tr>
                 <tr>
                   <th scope="row">Branch 2</th>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
+                  <td>3.4k</td>
+                  <td>4.1k</td>
+                  <td>6.9k</td>
+                  <td>5.7k</td>
+                  <td>8.2k</td>
+                  <td>4.5k</td>
+                  <td>6.9k</td>
                 </tr>
                 <tr>
                   <th scope="row">Branch 3 </th>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
+                  <td>4.2k</td>
+                  <td>3.5k</td>
+                  <td>3.6k</td>
+                  <td>4.1k</td>
+                  <td>6.9k</td>
+                  <td>5.4k</td>
+                  <td>3.7k</td>
                 </tr>
                 <tr>
                   <th scope="row">Branch 4</th>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
+                  <td>5.1k</td>
+                  <td>3.9k</td>
+                  <td>4.6k</td>
+                  <td>3.5k</td>
+                  <td>7.1k</td>
+                  <td>4.9k</td>
+                  <td>5.4k</td>
                 </tr>
                 <tr>
                   <th scope="row">Branch 5</th>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
-                  <td>12.2k</td>
+                  <td>3.2k</td>
+                  <td>5.4k</td>
+                  <td>4.8k</td>
+                  <td>5.2k</td>
+                  <td>6.4k</td>
+                  <td>4.5k</td>
+                  <td>5.7k</td>
                 </tr>
               </tbody>
             </table>

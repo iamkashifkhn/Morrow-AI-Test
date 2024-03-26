@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import {
   Dropdown,
   DropdownToggle,
@@ -9,6 +9,8 @@ import {
 
 //i18n
 import { withTranslation } from "react-i18next";
+import avatar from "../../../assets/images/users/avatar-1.jpg";
+
 // Redux
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -17,7 +19,7 @@ import withRouter from "../withRouter";
 // users
 import user1 from "../../../assets/images/users/avatar-1.jpg";
 
-const ProfileMenu = props => {
+const ProfileMenu = (props) => {
   // Declare a new state variable, which we'll call "menu"
   const [menu, setMenu] = useState(false);
 
@@ -42,7 +44,6 @@ const ProfileMenu = props => {
     return name ? name.charAt(0).toUpperCase() : "K";
   };
 
-
   return (
     <React.Fragment>
       <Dropdown
@@ -60,9 +61,12 @@ const ProfileMenu = props => {
             src={user1}
             alt="Header Avatar"
           /> */}
-          <span style={{borderRadius:'50%', padding:'7px', backgroundColor:'#d9d5d4', minWidth:'2rem', paddingLeft:'9px'}}>
-            {getFirstLetter(username)}
-          </span>
+ 
+          <img
+            alt=""
+            className="avatar-sm rounded-circle img-thumbnail"
+            src={avatar}
+          />
           <span className="d-none d-xl-inline-block ms-2 me-2">{username}</span>
           <i className="mdi mdi-chevron-down d-none d-xl-inline-block" />
         </DropdownToggle>
@@ -72,19 +76,16 @@ const ProfileMenu = props => {
             <i className="ri-user-line align-middle me-2" />
             {props.t("Profile")}{" "}
           </DropdownItem>
+
           {/* <DropdownItem tag="a" href="#">
-            <i className="ri-wallet-2-line align-middle me-2" />
-            {props.t("My Wallet")}
-          </DropdownItem> */}
-          <DropdownItem tag="a" href="#">
             <span className="badge bg-success float-end mt-1">11</span>
             <i className="ri-settings-2-line align-middle me-2" />
             {props.t("Settings")}
-          </DropdownItem>
-          <DropdownItem tag="a" href="#">
+          </DropdownItem> */}
+          {/* <DropdownItem tag="a" href="#">
             <i className="ri-lock-unlock-line align-middle me-2" />
             {props.t("Lock screen")}
-          </DropdownItem>
+          </DropdownItem> */}
           <div className="dropdown-divider" />
           <Link to="/logout" className="dropdown-item">
             <i className="ri-shut-down-line align-middle me-2 text-danger" />
@@ -98,10 +99,10 @@ const ProfileMenu = props => {
 
 ProfileMenu.propTypes = {
   success: PropTypes.any,
-  t: PropTypes.any
+  t: PropTypes.any,
 };
 
-const mapStatetoProps = state => {
+const mapStatetoProps = (state) => {
   const { error, success } = state.profile;
   return { error, success };
 };

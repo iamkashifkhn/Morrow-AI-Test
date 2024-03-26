@@ -3,12 +3,11 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-import LanguageDropdown from "../../components/Common/TopbarDropdown/LanguageDropdown";
+// import LanguageDropdown from "../../components/Common/TopbarDropdown/LanguageDropdown";
 // import NotificationDropdown from "../../components/Common/TopbarDropdown/NotificationDropdown";
 
 //i18n
 import { withTranslation } from "react-i18next";
-
 //import images
 // import logoSm from "../../assets/images/logo-sm.png";
 // import logoDark from "../../assets/images/logo-dark.png";
@@ -160,7 +159,7 @@ const Header = (props) => {
               </div>
             </div>
 
-            <LanguageDropdown />
+            {/* <LanguageDropdown /> */}
             {/* <AppsDropdown /> */}
 
             <div className="dropdown d-none d-lg-inline-block ms-1">

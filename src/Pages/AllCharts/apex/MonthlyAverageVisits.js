@@ -15,9 +15,9 @@ const MonthlyAverageVisits = ({ data }) => {
   }
 
   // let months = ["February", "March", "April", "May", "June", "July", "August", "September", "October", "November"]
-  let months = ["March", "April", "May", "June", "July", "August", "September", "October", "November"]
+  let months = ["April", "May", "June", "July", "August", "September", "October", "November"]
 
-  let emptyData = [0,0,0,0,0,0,0,0,0, 1474, 2730, 1205]
+  let emptyData = [0,0,0,0,0,0,0,0, 1474, 2730, 1205, 1859]
   const monthlyData = {
     series: [
       {
@@ -48,7 +48,7 @@ const MonthlyAverageVisits = ({ data }) => {
       },
       xaxis: {
         // categories: [...months , ...data?.totalVisitsLast12Months?.map(month => `${month.year}-${month.month}`)] || [],
-        categories: [...months , "December", "January", "February"] || [],
+        categories: [...months , "December", "January", "February", "March"] || [],
         title: { text: "Months" },
       },
       yaxis: { title: { text: "Number of Visitors" }, 

@@ -139,8 +139,8 @@ const UserPanel = ({ data, loading }) => {
                 </div>
 
                 <div className="flex-grow-1 overflow-hidden">
-                  <p className="mb-1">Average Waiting Time (Minutes)</p>
-                  <h3 className="mb-3">10</h3>
+                  <p className="mb-1">Average Waiting Time (Seconds)</p>
+                  <h3 className="mb-3">43</h3>
                 </div>
               </div>
             </CardBody>
